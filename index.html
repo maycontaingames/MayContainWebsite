@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>May Contain Games</title>
+<meta name="description" content="May Contain Games is an independent game studio. Contents may settle during shipping.">
+<style>
+  :root {
+    --paper: #fdfdfb;
+    --ink: #000;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #101010;
+      --ink: #f2f2ef;
+    }
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+  .label {
+    border: 2px solid var(--ink);
+    padding: 20px 24px 24px;
+    width: 100%;
+    max-width: 420px;
+  }
+  h1 {
+    font-size: clamp(28px, 8vw, 40px);
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    line-height: 1.05;
+    text-transform: uppercase;
+  }
+  .rule {
+    border: none;
+    border-top: 8px solid var(--ink);
+    margin: 14px 0 12px;
+  }
+  .rule.thin {
+    border-top-width: 1px;
+    margin: 10px 0;
+  }
+  .row {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+  .row strong { font-weight: 700; }
+  .fine {
+    font-size: 12px;
+    line-height: 1.5;
+    margin-top: 12px;
+  }
+  a {
+    color: var(--ink);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  a:focus-visible {
+    outline: 2px solid var(--ink);
+    outline-offset: 2px;
+  }
+</style>
+</head>
+<body>
+  <main class="label">
+    <h1>May Contain Games</h1>
+    <hr class="rule">
+    <p class="row"><strong>Contents:</strong> an independent game studio.</p>
+    <hr class="rule thin">
+    <p class="row"><strong>May contain:</strong> up to 100% game.</p>
+    <hr class="rule thin">
+    <p class="row"><strong>Contact:</strong> <a href="mailto:maycontaindev@gmail.com">maycontaindev@gmail.com</a></p>
+    <p class="fine">Produced in a facility that may contain production. Contents may have settled during development.</p>
+  </main>
+</body>
+</html>
