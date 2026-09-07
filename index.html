@@ -10,16 +10,11 @@
   :root {
     --paper: #fdfdfb;
     --ink: #000;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --paper: #101010;
-      --ink: #f2f2ef;
-    }
+    --ground: #141414;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
-    background: var(--paper);
+    background: var(--ground);
     color: var(--ink);
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     min-height: 100svh;
@@ -31,6 +26,7 @@
   /* One knob scales the whole label: everything below is em-based. */
   .label {
     font-size: clamp(15px, 4vw, 19px);
+    background: var(--paper);
     border: 0.16em solid var(--ink);
     padding: 1.4em 1.6em 1.6em;
     width: 100%;
@@ -67,22 +63,119 @@
     text-decoration: underline;
     text-underline-offset: 2px;
   }
+  .sub {
+    font-size: 0.85em;
+    line-height: 1.5;
+  }
+  .rule.mid {
+    border-top-width: 0.28em;
+    margin: 0.55em 0;
+  }
+  .fact {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1em;
+    font-size: 1em;
+    line-height: 1.45;
+  }
+  .fact.amount {
+    align-items: baseline;
+    margin-top: 0.1em;
+  }
+  .fact.amount .big {
+    font-size: 2em;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+  .dv-head {
+    font-size: 0.72em;
+    font-weight: 700;
+    text-align: right;
+    line-height: 1.6;
+  }
+  .fact.dv {
+    border-top: 1px solid var(--ink);
+    padding: 0.15em 0;
+  }
+  .fact.dv:first-of-type { border-top: none; }
+  .fact.dv strong { font-weight: 700; }
+  .fact.dv .pct { font-weight: 700; white-space: nowrap; }
+  .note {
+    font-size: 0.85em;
+    line-height: 1.5;
+    padding-top: 0.25em;
+  }
+  .ingredients {
+    font-size: 0.85em;
+    line-height: 1.5;
+    text-transform: uppercase;
+  }
+  .ingredients + .ingredients { margin-top: 0.35em; }
+  .seal svg { width: 62px; height: 62px; }
+  .seal-lg svg { width: 74px; height: 74px; }
   a:focus-visible {
     outline: 2px solid var(--ink);
     outline-offset: 2px;
   }
+  .seals {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.7em;
+    margin-top: 0.7em;
+  }
+  .seals.socials { margin-top: 0.55em; }
+  .seal { display: block; }
+  .seal svg { display: block; }
+  a.seal:hover { opacity: 0.7; }
 </style>
 </head>
 <body>
   <main class="label">
     <h1>May Contain Games</h1>
     <hr class="rule">
+    <p class="sub">Serving size: 1 hour</p>
+    <p class="sub">Servings per container: yes</p>
+    <hr class="rule mid">
     <p class="row"><strong>Contents:</strong> an independent game studio.</p>
     <hr class="rule thin">
     <p class="row"><strong>May contain:</strong> up to 100% game.</p>
+    <hr class="rule mid">
+    <p class="sub"><strong>Amount per serving</strong></p>
+    <div class="fact amount"><strong>Games in development</strong><span class="big">1</span></div>
+    <hr class="rule mid">
+    <p class="dv-head">% Daily Value*</p>
+    <div class="fact dv"><strong>Things you can't move</strong><span class="pct">0.13%</span></div>
+    <div class="fact dv"><strong>Duct tape</strong><span class="pct">340%</span></div>
+    <div class="fact dv"><strong>Awkward silences</strong><span class="pct">100%</span></div>
+    <div class="fact dv"><strong>Things you are allowed to touch</strong><span class="pct">100%</span></div>
+    <div class="fact dv"><strong>Things you are supposed to touch</strong><span class="pct">4%</span></div>
+    <div class="fact dv"><strong>Short-term memory</strong><span class="pct">&dagger;</span></div>
+    <div class="fact dv"><strong>Things you are supposed to touch</strong><span class="pct">4%</span></div>
+    <hr class="rule thin">
+    <p class="note">Not a significant source of hand-holding.</p>
+    <hr class="rule mid">
+    <p class="ingredients"><strong>Ingredients:</strong> gravity, a wall, someone's desk, various lightbulbs, duct tape, a chair (still warm), coworkers, a memo, consequences, one (1) developer. Contains less than 2% of: tutorials, cutscenes, answers.</p>
+    <p class="ingredients"><strong>No artificial scripting.</strong></p>
+    <p class="fine">* Percent Daily Values are based on an 80-hour development week.<br>&dagger; Daily Value not established.</p>
     <hr class="rule thin">
     <p class="row"><strong>Contact:</strong> <a href="mailto:maycontaindev@gmail.com">maycontaindev@gmail.com</a></p>
-    <p class="fine">Produced in a facility that may contain production. Contents may have settled during development.</p>
+    <hr class="rule thin">
+    <div class="seals">
+      <span class="seal seal-lg" title="Made with real physics" aria-hidden="true"><svg viewBox="0 0 64 64"><g fill="none" stroke="var(--ink)" stroke-width="1.6" stroke-linecap="round"><path d="M26.0 59.0 Q0.5 44.0 16.5 8.5"/><path d="M26.0 59.0 Q0.5 44.0 16.5 8.5" transform="translate(64.0 0) scale(-1 1)"/></g><g fill="var(--ink)"><ellipse cx="19.5" cy="57.4" rx="4.2" ry="1.8" transform="rotate(-184.8 19.5 57.4)"/><ellipse cx="13.6" cy="51.2" rx="4.2" ry="1.8" transform="rotate(-171.0 13.6 51.2)"/><ellipse cx="9.8" cy="44.0" rx="4.2" ry="1.8" transform="rotate(-155.3 9.8 44.0)"/><ellipse cx="8.1" cy="36.1" rx="4.2" ry="1.8" transform="rotate(-139.7 8.1 36.1)"/><ellipse cx="8.3" cy="27.4" rx="4.2" ry="1.8" transform="rotate(-126.2 8.3 27.4)"/><ellipse cx="10.4" cy="18.0" rx="4.2" ry="1.8" transform="rotate(-115.6 10.4 18.0)"/><ellipse cx="13.9" cy="8.6" rx="4.2" ry="1.8" transform="rotate(-108.0 13.9 8.6)"/><ellipse cx="17.3" cy="10.8" rx="3.2" ry="1.4" transform="rotate(-28.0 17.3 10.8)"/></g><g fill="var(--ink)" transform="translate(64.0 0) scale(-1 1)"><ellipse cx="19.5" cy="57.4" rx="4.2" ry="1.8" transform="rotate(-184.8 19.5 57.4)"/><ellipse cx="13.6" cy="51.2" rx="4.2" ry="1.8" transform="rotate(-171.0 13.6 51.2)"/><ellipse cx="9.8" cy="44.0" rx="4.2" ry="1.8" transform="rotate(-155.3 9.8 44.0)"/><ellipse cx="8.1" cy="36.1" rx="4.2" ry="1.8" transform="rotate(-139.7 8.1 36.1)"/><ellipse cx="8.3" cy="27.4" rx="4.2" ry="1.8" transform="rotate(-126.2 8.3 27.4)"/><ellipse cx="10.4" cy="18.0" rx="4.2" ry="1.8" transform="rotate(-115.6 10.4 18.0)"/><ellipse cx="13.9" cy="8.6" rx="4.2" ry="1.8" transform="rotate(-108.0 13.9 8.6)"/><ellipse cx="17.3" cy="10.8" rx="3.2" ry="1.4" transform="rotate(-28.0 17.3 10.8)"/></g><text x="32.0" y="27.7" text-anchor="middle" fill="var(--ink)" style="font-size:4.9px; font-weight:800; letter-spacing:0.2px;">MADE WITH</text><text x="32.0" y="34.9" text-anchor="middle" fill="var(--ink)" style="font-size:6.8px; font-weight:800;">REAL</text><text x="32.0" y="41.8" text-anchor="middle" fill="var(--ink)" style="font-size:6.4px; font-weight:800;">PHYSICS</text></svg></span>
+      <span class="seal seal-lg" title="0% inspected" aria-hidden="true"><svg viewBox="0 0 64 64"><g fill="none" stroke="var(--ink)"><circle cx="32" cy="32" r="27" stroke-width="3"/><circle cx="32" cy="32" r="22.5" stroke-width="0.9"/></g><text x="32" y="30.5" text-anchor="middle" fill="var(--ink)" style="font-size:12px; font-weight:800;">0%</text><text x="32" y="40.5" text-anchor="middle" fill="var(--ink)" style="font-size:5.8px; font-weight:800; letter-spacing:0.2px;">INSPECTED</text></svg></span>
+    </div>
+    <div class="seals socials">
+            <a class="seal" href="https://maycontaingames.itch.io" aria-label="May Contain Games on itch.io"><svg viewBox="0 0 64 64" width="56" height="56"><path d="M22 50 L17 61 L23 58 L26 63 L30 51 Z" fill="var(--ink)"/><path d="M42 50 L47 61 L41 58 L38 63 L34 51 Z" fill="var(--ink)"/><g fill="none" stroke="var(--ink)"><circle cx="32" cy="30" r="24" stroke-width="2.5"/><circle cx="32" cy="30" r="19" stroke-width="0.9"/></g><text x="32" y="33.5" text-anchor="middle" fill="var(--ink)" style="font-size:9.5px; font-weight:800;">itch.io</text></svg></a>
+      <a class="seal" href="https://youtube.com/@maycontainstudio" aria-label="May Contain Games on YouTube"><svg viewBox="0 0 64 64" width="56" height="56"><path d="M32.0 7.0 A6.4 6.4 0 0 1 42.8 9.5 A6.4 6.4 0 0 1 51.5 16.4 A6.4 6.4 0 0 1 56.4 26.4 A6.4 6.4 0 0 1 56.4 37.6 A6.4 6.4 0 0 1 51.5 47.6 A6.4 6.4 0 0 1 42.8 54.5 A6.4 6.4 0 0 1 32.0 57.0 A6.4 6.4 0 0 1 21.2 54.5 A6.4 6.4 0 0 1 12.5 47.6 A6.4 6.4 0 0 1 7.6 37.6 A6.4 6.4 0 0 1 7.6 26.4 A6.4 6.4 0 0 1 12.5 16.4 A6.4 6.4 0 0 1 21.2 9.5 A6.4 6.4 0 0 1 32.0 7.0 Z" fill="none" stroke="var(--ink)" stroke-width="2"/><circle cx="32" cy="32" r="20.5" fill="none" stroke="var(--ink)" stroke-width="0.9"/><path d="M27 24 L43 32 L27 40 Z" fill="var(--ink)"/></svg></a>
+      <a class="seal" href="https://x.com/maycontaingames" aria-label="May Contain Games on X"><svg viewBox="0 0 64 64" width="56" height="56"><polygon points="32.0,3.0 36.8,8.0 43.1,5.2 45.6,11.6 52.5,11.5 52.4,18.4 58.8,20.9 56.0,27.2 61.0,32.0 56.0,36.8 58.8,43.1 52.4,45.6 52.5,52.5 45.6,52.4 43.1,58.8 36.8,56.0 32.0,61.0 27.2,56.0 20.9,58.8 18.4,52.4 11.5,52.5 11.6,45.6 5.2,43.1 8.0,36.8 3.0,32.0 8.0,27.2 5.2,20.9 11.6,18.4 11.5,11.5 18.4,11.6 20.9,5.2 27.2,8.0" fill="none" stroke="var(--ink)" stroke-width="1.8"/><circle cx="32" cy="32" r="20" fill="none" stroke="var(--ink)" stroke-width="0.9"/><path d="M25 25 L39 39 M39 25 L25 39" stroke="var(--ink)" stroke-width="3.5" stroke-linecap="round"/></svg></a>
+      <a class="seal" href="https://tiktok.com/@maycontainstudio" aria-label="May Contain Games on TikTok"><svg viewBox="0 0 64 64" width="56" height="56"><g fill="var(--ink)"><ellipse cx="32.0" cy="7.5" rx="4.6" ry="2.1" transform="rotate(90.0 32.0 7.5)"/><ellipse cx="41.4" cy="9.4" rx="4.6" ry="2.1" transform="rotate(112.5 41.4 9.4)"/><ellipse cx="49.3" cy="14.7" rx="4.6" ry="2.1" transform="rotate(135.0 49.3 14.7)"/><ellipse cx="54.6" cy="22.6" rx="4.6" ry="2.1" transform="rotate(157.5 54.6 22.6)"/><ellipse cx="56.5" cy="32.0" rx="4.6" ry="2.1" transform="rotate(180.0 56.5 32.0)"/><ellipse cx="54.6" cy="41.4" rx="4.6" ry="2.1" transform="rotate(202.5 54.6 41.4)"/><ellipse cx="49.3" cy="49.3" rx="4.6" ry="2.1" transform="rotate(225.0 49.3 49.3)"/><ellipse cx="41.4" cy="54.6" rx="4.6" ry="2.1" transform="rotate(247.5 41.4 54.6)"/><ellipse cx="32.0" cy="56.5" rx="4.6" ry="2.1" transform="rotate(270.0 32.0 56.5)"/><ellipse cx="22.6" cy="54.6" rx="4.6" ry="2.1" transform="rotate(292.5 22.6 54.6)"/><ellipse cx="14.7" cy="49.3" rx="4.6" ry="2.1" transform="rotate(315.0 14.7 49.3)"/><ellipse cx="9.4" cy="41.4" rx="4.6" ry="2.1" transform="rotate(337.5 9.4 41.4)"/><ellipse cx="7.5" cy="32.0" rx="4.6" ry="2.1" transform="rotate(360.0 7.5 32.0)"/><ellipse cx="9.4" cy="22.6" rx="4.6" ry="2.1" transform="rotate(382.5 9.4 22.6)"/><ellipse cx="14.7" cy="14.7" rx="4.6" ry="2.1" transform="rotate(405.0 14.7 14.7)"/><ellipse cx="22.6" cy="9.4" rx="4.6" ry="2.1" transform="rotate(427.5 22.6 9.4)"/></g><circle cx="32" cy="32" r="20" fill="none" stroke="var(--ink)" stroke-width="0.9"/><circle cx="27.5" cy="39" r="5" fill="var(--ink)"/><path d="M32.5 39 L32.5 21 Q38 25 44 23.5" fill="none" stroke="var(--ink)" stroke-width="3" stroke-linecap="round"/></svg></a>
+      <a class="seal" href="https://instagram.com/maycontainstudio" aria-label="May Contain Games on Instagram"><svg viewBox="0 0 64 64" width="56" height="56"><g fill="var(--ink)"><ellipse cx="47.2" cy="53.7" rx="4.2" ry="1.9" transform="rotate(225.0 47.2 53.7)"/><ellipse cx="37.4" cy="58.0" rx="4.2" ry="1.9" transform="rotate(248.3 37.4 58.0)"/><ellipse cx="26.6" cy="58.0" rx="4.2" ry="1.9" transform="rotate(271.7 26.6 58.0)"/><ellipse cx="16.8" cy="53.7" rx="4.2" ry="1.9" transform="rotate(295.0 16.8 53.7)"/><ellipse cx="16.8" cy="53.7" rx="4.2" ry="1.9" transform="rotate(-225.0 16.8 53.7)"/><ellipse cx="26.6" cy="58.0" rx="4.2" ry="1.9" transform="rotate(-248.3 26.6 58.0)"/><ellipse cx="37.4" cy="58.0" rx="4.2" ry="1.9" transform="rotate(-271.7 37.4 58.0)"/><ellipse cx="47.2" cy="53.7" rx="4.2" ry="1.9" transform="rotate(-295.0 47.2 53.7)"/></g><circle cx="32" cy="30" r="23" fill="none" stroke="var(--ink)" stroke-width="2.5"/><rect x="21" y="19" width="22" height="22" rx="5.5" fill="none" stroke="var(--ink)" stroke-width="2.2"/><circle cx="32" cy="30" r="5.5" fill="none" stroke="var(--ink)" stroke-width="2.2"/><circle cx="38.5" cy="23.5" r="1.6" fill="var(--ink)"/></svg></a>
+      <a class="seal" href="https://bsky.app/profile/maycontainstudio.bsky.social" aria-label="May Contain Games on Bluesky"><svg viewBox="0 0 64 64" width="56" height="56"><path d="M32.0 7.0 A7.2 7.2 0 0 1 44.5 10.3 A7.2 7.2 0 0 1 53.7 19.5 A7.2 7.2 0 0 1 57.0 32.0 A7.2 7.2 0 0 1 53.7 44.5 A7.2 7.2 0 0 1 44.5 53.7 A7.2 7.2 0 0 1 32.0 57.0 A7.2 7.2 0 0 1 19.5 53.7 A7.2 7.2 0 0 1 10.3 44.5 A7.2 7.2 0 0 1 7.0 32.0 A7.2 7.2 0 0 1 10.3 19.5 A7.2 7.2 0 0 1 19.5 10.3 A7.2 7.2 0 0 1 32.0 7.0 Z" fill="none" stroke="var(--ink)" stroke-width="2"/><path d="M32 29 C29 21 20 18 19 25 C18 31 26 34 32 37 C38 34 46 31 45 25 C44 18 35 21 32 29 Z" fill="var(--ink)"/></svg></a>
+    </div>
+    <p class="fine" style="margin-top: 1.5em;">Produced in a facility that may contain cat hair and doubt. Contents may have settled during development.</p>
   </main>
 </body>
 </html>
